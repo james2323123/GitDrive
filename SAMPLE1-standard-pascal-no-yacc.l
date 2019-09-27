@@ -146,24 +146,61 @@ SCIENTIFIC ({INTEGER}|{FLOAT}){E}{INTEGER}
 
 "/*"    {
 	int c;
-	fprintf(stdout, "multi-line comment starts from line %d", line_no);
+	fprintf(stdout, "multi-line comment starts from line %d:\n", line_no);
 	while((c = input())){
-		if (c == '\n')
+		if (c == '\n'){
 			line_no++;
+			fprintf(stdout, "\n");
+		}
 		else if (c == 0)
 			fprintf(stdout, "unexpected EOF in multi-line comment in line %d\n",line_no);
 		else if (c== '*'){
 				if ((c=input()) == '/'){
-					fprintf(stdout, " and ends at line %d\n", line_no);
+					fprintf(stdout, "\nand ends at line %d\n", line_no);
 					break;
 				}
 				else
+					fprintf(stdout, "*");
 					unput(c);
 			}
+		else {
+			fprintf(stdout, "%c", c);
 		}
 	}
+}
 
-\"([^\"\n]|{ESC_EOL}|{ESC_QUOTE}|{EOL})*\"                         return(STRING);
+\"      {
+	int c;
+	fprintf(stdout, "string starts from line %d:\n", line_no);
+	while(c = input()){
+		if(c == '\n')
+			line_no++;
+		else if(c == 0)
+			fprintf(stdout, "unexpected EOF in string in line %d\n",line_no);
+		else if(c == '\\'){
+			int d = input();
+			if(d == 'n'){
+				fprintf(stdout, "\n");
+			}
+			else if(d == '\"'){
+				fprintf(stdout, "\"");
+			}
+			else{
+				fprintf(stdout,"\\");
+				unput(d);
+			}
+		}
+		else if(c == '\"'){
+			fprintf(stdout, "\nand ends at line %d\n",line_no);
+		break;	
+		}
+		else
+			fprintf(stdout, "%c", c);
+		
+	}
+	
+	
+}
 
 ":="                         return(ASSIGNMENT);
 ":"                          return(COLON);
