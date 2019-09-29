@@ -1,0 +1,45 @@
+string starts from line 1:
+
+and ends at line 1
+string starts from line 2:
+Single String
+and ends at line 2
+string starts from line 3:
+Double
+and ends at line 3
+string starts from line 3:
+Strings
+and ends at line 3
+string starts from line 4:
+double quote->
+and ends at line 4
+string starts from line 4:
+<-double quote
+and ends at line 4
+string starts from line 5:
+Your string should ignore these reserved words -> program var array not
+and ends at line 5
+string starts from line 6:
+ Test whether you can ignore comments // This is a comment 
+and ends at line 6
+string starts from line 7:
+ Test whether you can ignore comments /* This is a comment */ 
+and ends at line 7
+string starts from line 8:
+ Test whether you can ignore comments // This is a comment /* This is a comment */ 
+and ends at line 8
+string starts from line 9:
+strings with escape characters 
+"asdfwtf
+asdf
+\\asd
+and ends at line 9
+string starts from line 10:
+ Multi-Line  String Can you tokenize it
+and ends at line 11
+string starts from line 12:
+ Multi-Line  With comment // This is a comment 
+and ends at line 13
+string starts from line 14:
+ Multi-Line  With comment   /*     This is a comment  */ 
+and ends at line 18
