@@ -1,45 +1,94 @@
-string starts from line 1:
-
-and ends at line 1
-string starts from line 2:
-Single String
+one-line comment on line 1:  This is C++ Style Comment
+multi-line comment starts from line 2:
+ This is C Style Comment 
 and ends at line 2
-string starts from line 3:
-Double
-and ends at line 3
-string starts from line 3:
-Strings
-and ends at line 3
-string starts from line 4:
-double quote->
-and ends at line 4
-string starts from line 4:
-<-double quote
-and ends at line 4
-string starts from line 5:
-Your string should ignore these reserved words -> program var array not
-and ends at line 5
-string starts from line 6:
- Test whether you can ignore comments // This is a comment 
+one-line comment on line 3:  NotId 12345 123.456E+55 "Hello World"
+one-line comment on line 4:  Nested comments // Innermost Comment
+one-line comment on line 5:  Nested Outer comment /* Nested Inner C++ Style Comment // */ Nested Outer comment in the last
+multi-line comment starts from line 6:
+ Hello World | // <- You should not scan this one as C Style Comment | C++ Style Comment ends -> 
 and ends at line 6
-string starts from line 7:
+multi-line comment starts from line 7:
+  
+    NotId
+    12345
+    123.456E+55
+    "Hello World"
+    // Nested C Style comments
+    /* Nested C++ Style Comments 
+and ends at line 13
+  0-th token(type:62) on line 14 : *
+  1-th token(type:61) on line 14 : /
+multi-line comment starts from line 15:
+ the final comment
+ * is an eclipse-styled comment block
+ * with multiple stars in the middle
+
+and ends at line 18
+string starts from line 19:
+
+and ends at line 19
+string starts from line 20:
+Single String
+and ends at line 20
+string starts from line 21:
+Double
+and ends at line 21
+string starts from line 21:
+Strings
+and ends at line 21
+string starts from line 22:
+double quote->
+and ends at line 22
+string starts from line 22:
+<-double quote
+and ends at line 22
+string starts from line 23:
+Your string should ignore these reserved words -> program var array not
+and ends at line 23
+string starts from line 24:
+ Test whether you can ignore comments // This is a comment 
+and ends at line 24
+string starts from line 25:
  Test whether you can ignore comments /* This is a comment */ 
-and ends at line 7
-string starts from line 8:
+and ends at line 25
+string starts from line 26:
  Test whether you can ignore comments // This is a comment /* This is a comment */ 
-and ends at line 8
-string starts from line 9:
+and ends at line 26
+string starts from line 27:
 strings with escape characters 
 "asdfwtf
 asdf
 \\asd
-and ends at line 9
-string starts from line 10:
+and ends at line 27
+string starts from line 28:
  Multi-Line  String Can you tokenize it
-and ends at line 11
-string starts from line 12:
+and ends at line 29
+string starts from line 30:
  Multi-Line  With comment // This is a comment 
-and ends at line 13
-string starts from line 14:
+and ends at line 31
+string starts from line 32:
  Multi-Line  With comment   /*     This is a comment  */ 
-and ends at line 18
+and ends at line 36
+  2-th token(type:55) on line 37 : 0
+  3-th token(type:55) on line 38 : 9
+  4-th token(type:55) on line 39 : 13562
+  5-th token(type:55) on line 40 : 138796542348956324597
+  6-th token(type:55) on line 41 : 1397832154685.36
+  7-th token(type:55) on line 42 : 1768.0126976
+  8-th token(type:55) on line 43 : 17.249E5
+  9-th token(type:55) on line 44 : 16.33074E+2
+ 10-th token(type:55) on line 45 : 16.3374E-2
+ 11-th token(type:55) on line 46 : 1430E6
+ 12-th token(type:55) on line 47 : 16E+2
+ 13-th token(type:55) on line 48 : 7E-303
+ 14-th token(type:55) on line 49 : 142.53
+ 15-th token(type:39) on line 49 : EAAThisIsAVariable
+ 16-th token(type:39) on line 50 : aa12345
+Lexical analyzer error at line 51 : _
+Lexical analyzer error at line 51 : _
+ 17-th token(type:39) on line 51 : Underscores_HEADING
+ 18-th token(type:39) on line 52 : Complex_123ABC__AA_1_
+ 19-th token(type:39) on line 53 : A_VERY_long_Identifier_1234567890987654321_CAN_YOU_IDENTIFIER_AND_TOKENIZE_IT_WITH_QUESTION_SIGN_IN_THE_LAST
+ 20-th token(type:55) on line 54 : 12345
+ 21-th token(type:39) on line 54 : WRONG_Identifier
