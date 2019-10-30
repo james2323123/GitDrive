@@ -544,4 +544,5 @@ semicolon : SEMICOLON
  ;
 
 comma : COMMA
+;
  ;

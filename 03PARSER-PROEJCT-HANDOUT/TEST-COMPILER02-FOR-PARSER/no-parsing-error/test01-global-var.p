@@ -4,17 +4,16 @@ program ab(cd,ef,gh);
    var ij, op: integer;
 
 
-   function  kl(mn: integer) : integer; 
+   //function  kl(mn: integer) : integer; 
 
-      begin
+     // begin
   
-      op := ij + mn
-+ op 
-      end;
+      //op := ij + mn + op 
+      //end;
 
 begin
 
-ij := 45;
+//ij := 45;
 if ij > 1
 
     then op := 1

@@ -9,7 +9,7 @@ PROGRAM foo(input, output, error) ;
       b := a - 93;  // simple expression
       b := a * 93;  // simple expression
       b := a / 93;  // simple expression
-      b := 3 + 93 * 5 + b * (23-15*6/9);  // complex expression
+      b := 3 + 93 * 5 + b * (23 - 15*6/9);  // complex expression
       
       a := 1;   // test relation operators
       if b > a then a := a * 2 else a := a * 3;

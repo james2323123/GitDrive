@@ -37,7 +37,7 @@ PROGRAM foo(input, output, error) ;
       end;
       k[25][26] := 3.14;     // good
       k[25][26] := k[25][26] + 3;     // good
-      k[a+35][a+30]  := 3.14   // Can your compiler generate run-time range checks?
+      k[a + 35][a + 30]  := 3.14   // Can your compiler generate run-time range checks?
                                 // could there be a semincolon at the end
                                 // of the last statement?
    end.   // this is the end of the program
