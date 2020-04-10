@@ -417,6 +417,9 @@ try:
     # if run directly we'll just create an instance of the class and output 
     # the current readings
     
+    pitch = 0
+    roll = 0
+    
     sensors = gy801()
     
     accel = sensors.accel
