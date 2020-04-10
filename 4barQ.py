@@ -164,19 +164,17 @@ class ADXL345(IMU):
         self.Z = self.getZg(plf) * EARTH_GRAVITY_MS2
         return self.Z
 
-    def getPitch(self) :
+    def getPitchRollTilt(self) :
         aX = self.getXg()
         aY = self.getYg()
         aZ = self.getZg()
         self.pitch = -aX / numpy.sqrt(pow(aY,2)+pow(aZ,2))
-        return self.pitch 
-
-    def getRoll(self) :
-        aX = self.getXg()
-        aY = self.getYg()
-        aZ = self.getZg()
         self.roll = aY / aZ
-        return self.roll
+        self.tilt = aZ / numpy.sqrt(pow(aX,2)+pow(aY,2)+pow(aZ,2))
+        return self.pitch , self.roll , self.tilt
+
+
+    
 
 class L3G4200D(IMU):
     
@@ -420,18 +418,38 @@ try:
     # the current readings
     
     sensors = gy801()
-
+    
+    accel = sensors.accel
+    gyro = sensors.gyro
+    compass = sensors.compass
     barometer = sensors.baro
     
-    tempC = barometer.getTempC()
-    tempF = barometer.getTempF()
-    press = barometer.getPress()
-    altitude = barometer.getAltitude()
-   
-    print ("Barometer:" )
-    print ("   Temp: %f C (%f F)" %(tempC,tempF))
-    print ("   Press: %f (hPa)" %(press))
-    print ("   Altitude: %f m s.l.m" %(altitude))
+    while(True):
+        
+        Xangle = gyro.getXangle()
+        Yangle = gyro.getYangle()
+        Zangle = gyro.getZangle()
+
+        AccPitch, AccRoll, AccTilt = accel.getPitchRollTilt()
+        
+
+        pitch = (pitch + Xangle) * 0.98 + AccPitch *0.02
+        roll = (roll + Yangle) * 0.98 + AccRoll * 0.02
+
+        print ("Pitch = %.3f" % ( pitch ))
+        print ("Roll = %.3f" % ( roll ))
+        print ("Tilt = %.3f" % ( AccTilt ))
+        
+        
+        tempC = barometer.getTempC()
+        tempF = barometer.getTempF()
+        press = barometer.getPress()
+        altitude = barometer.getAltitude()
+       
+        print ("Barometer:" )
+        print ("   Temp: %f C (%f F)" %(tempC,tempF))
+        print ("   Press: %f (hPa)" %(press))
+        print ("   Altitude: %f m s.l.m" %(altitude))
 
         
 except KeyboardInterrupt:
