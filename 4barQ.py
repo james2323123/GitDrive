@@ -170,7 +170,7 @@ class ADXL345(IMU):
         aZ = self.getZg()
         self.pitch = atan2(-aX, numpy.sqrt(pow(aY,2)+pow(aZ,2)))
         self.roll = atan2(aY, aZ)
-        self.tilt = numpt.arccos(aZ / numpy.sqrt(pow(aX,2)+pow(aY,2)+pow(aZ,2)))
+        self.tilt = numpy.arccos(aZ / numpy.sqrt(pow(aX,2)+pow(aY,2)+pow(aZ,2)))
         return self.pitch , self.roll , self.tilt
 
 
