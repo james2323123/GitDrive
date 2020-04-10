@@ -478,12 +478,13 @@ try:
         press = barometer.getPress()
         altitude = barometer.getAltitude()
        
-
+        print ("Original Heading = %.3f deg, " % ( bearing1 )), 
+        print ("Tilt Heading = %.3f deg, " % ( bearing2 ))
        
-        print ("Barometer:" )
-        print ("   Temp: %f C (%f F)" %(tempC,tempF))
-        print ("   Press: %f (hPa)" %(press))
-        print ("   Altitude: %f m s.l.m" %(altitude))
+
+        print ("Temp: %f C (%f F)" %(tempC,tempF))
+        print ("Press: %f (hPa)" %(press))
+        print ("Altitude: %f m s.l.m" %(altitude))
 
         
 except KeyboardInterrupt:
