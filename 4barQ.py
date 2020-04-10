@@ -432,6 +432,10 @@ try:
         Xangle = gyro.getXangle()
         Yangle = gyro.getYangle()
         Zangle = gyro.getZangle()
+        
+        magx = compass.getX()
+        magy = compass.getY()
+        magz = compass.getZ()
 
         AccPitch, AccRoll, AccTilt = accel.getPitchRollTilt()
         
@@ -444,10 +448,37 @@ try:
         print ("Tilt = %.3f" % ( AccTilt ))
         
         
+        # --------------------------------------------------
+        # Heading
+        bearing1  = degrees(atan2(magy, magx))
+
+        if (bearing1 < 0):
+            bearing1 += 360
+        if (bearing1 > 360):
+            bearing1 -= 360
+        bearing1 = bearing1 + compass.angle_offset
+        
+        # Tilt compensate
+        compx = magx * cos(pitch) + magz * sin(pitch)
+        compy = magx * sin(roll) * sin(pitch) \
+                + magy * cos(roll) \
+                - magz * sin(roll) * cos(pitch)
+
+        bearing2  = degrees(atan2(compy, compx))
+        if (bearing2 < 0):
+            bearing2 += 360
+        if (bearing2 > 360):
+            bearing2 -= 360
+        bearing2 = bearing2 + compass.angle_offset
+        # --------------------------------------------------
+
+        
         tempC = barometer.getTempC()
         tempF = barometer.getTempF()
         press = barometer.getPress()
         altitude = barometer.getAltitude()
+       
+
        
         print ("Barometer:" )
         print ("   Temp: %f C (%f F)" %(tempC,tempF))
