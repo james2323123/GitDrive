@@ -1,0 +1,1 @@
+balena-fin-overlay.o: arch/arm/boot/dts/overlays/balena-fin-overlay.dts

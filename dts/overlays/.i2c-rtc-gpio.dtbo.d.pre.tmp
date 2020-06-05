@@ -1,0 +1,2 @@
+i2c-rtc-gpio-overlay.o: \
+ arch/arm/boot/dts/overlays/i2c-rtc-gpio-overlay.dts
